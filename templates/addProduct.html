@@ -1,0 +1,56 @@
+{% extends "main.html" %}
+{% block dispContent %}
+
+    {% if success %}
+        <div id="toast" class="show success-toast">
+            <div id="desc">
+                <i class="fa fa-check"></i>
+                Product added successfully...
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container-fluid" >
+        <h2>Add Product</h2>
+        <hr>
+        <div class="row justify-content-center align-items-end">
+            <form class="needs-validation col-lg-6 col-xl-6" action="{{ url_for('addProduct') }}" method="post" role="form">
+                {{ form.hidden_tag() }}
+                <div class="form-row">
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="productName" id="productName" class="form-control" required>
+                        <label for="productName">Product Name</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="location" id="location" class="form-control" required>
+                        <label for="location">Location</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="number" name="quantity" id="quantity" class="form-control" required>
+                        <label for="quantity">Quantity</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="number" name="cost" id="cost" class="form-control" step="0.01" required>
+                        <label for="cost">Cost</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <button class="btn btn-primary float-right" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

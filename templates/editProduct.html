@@ -1,0 +1,57 @@
+{% extends "main.html" %}
+{% block dispContent %}
+
+    {% if success %}
+        <div id="toast" class="show success-toast">
+            <div id="desc">
+                <i class="fa fa-check"></i>
+                Product Updated successfully...
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container-fluid" >
+        <h2>Edit Product</h2>
+        <hr>
+        <div class="row justify-content-center align-items-end">
+            <form class="needs-validation col-lg-6 col-xl-6" action="{{ url_for('editProduct', id=product[0]) }}" method="post" role="form">
+                {{ form.hidden_tag() }}
+                <div class="form-row">
+
+                    <div class="col-md-6 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="productName" id="productName" class="form-control" value="{{ product[1] }}" required>
+                        <label for="productName">Product Name</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="location" id="location" class="form-control" value="{{ product[2] }}" required>
+                        <label for="lastname">Location</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="number" name="quantity" id="quantity" class="form-control" value="{{ product[3] }}" required>
+                        <label for="quantity">Quantity</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="number" name="cost" id="cost" class="form-control" value="{{ product[4] }}" step="0.01" required>
+                        <label for="address">Cost</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <button class="btn btn-primary float-right" type="submit">Update</button>
+                        <a href="/stock"><button class="btn btn-info float-right" type="button">Cancel</button></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

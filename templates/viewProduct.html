@@ -1,0 +1,89 @@
+{% extends "main.html" %}
+{% block dispContent %}
+
+    <style>
+        table.table-sm tbody td {
+            padding-bottom: 0px;
+            padding-top: 0px;
+            vertical-align: middle;
+        }
+    </style>
+    <div class="container-fluid" >
+        <div class="row" style="display:block; width:100%; max-width: 1000px; margin:auto;">        
+            <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th class="th-sm">
+                        ID
+                    </th>
+                    <th class="th-sm">
+                        Product Name
+                    </th>
+                    <th class="th-sm">
+                        Location
+                    </th>
+                    <th class="th-sm">
+                        Quantity
+                    </th>
+                    <th class="th-sm">
+                        Cost
+                    </th>
+                    <th class="th-sm">
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                    <tr key="{{ product[0] }}" >
+                        <td>{{ product[0] }}</td>
+                        <td>{{ product[1] }} </td>
+                        <td>{{ product[2] }}</td>
+                        <td>{{ product[3] }}</td>
+                        <td>{{ product[4] }}</td>
+                        <td>
+                            <a href="/product/edit/{{ product[0] }}"><button class="btn btn-sm btn-primary">Edit</button></a>
+                            <button class="btn btn-sm btn-secondary" key="{{ product[0] }}" onclick="delete_product(this);">Delete</button>
+                        </td>
+                    </tr>
+                {% endfor %}                
+            </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bodyscript %}
+    <script type="text/javascript">
+        $(document).ready(function(){            
+        });
+        function delete_product(e) {
+            var url="/product/delete";
+            var csrf_token = "{{ csrf_token() }}";
+            var product_id = $(e).attr("key");
+            $.ajax({
+                type: "POST",
+                cache: false,
+                data:{product_id: product_id},
+                url: url,
+                headers: {
+                    "X-CSRFToken": csrf_token,
+                },
+                dataType: "json",
+                success: function(data) {
+                    if(data.status=='success'){
+                        $("table tr[key="+product_id+"]").remove();
+                        datatable
+                            .row( $(e).parents('tr') )
+                            .remove()
+                            .draw();
+                    }           
+                },
+                error: function(jqXHR) {
+                    console.log(jqXHR);
+                }
+            });
+        }
+
+    </script>
+{% endblock %}

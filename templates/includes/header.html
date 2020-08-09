@@ -1,0 +1,65 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+    <div class="container header-container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">
+        <svg height="512pt" viewBox="0 -1 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg"><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/><g class="currentLayer" style=""><title>Layer 1</title><path d="m202.91269838809967,457.5472679253998 v51.855469 l-12.539062,-10.128907 c-1.9375,-1.566406 -48.035157,-38.992187 -94.78125,-92.660156 c-64.484376,-74.035156 -97.179688,-140.492187 -97.179688,-197.519531 v-5.652344 c0,-112.761719 91.738281,-204.5 204.5,-204.5 s204.5,91.738281 204.5,204.5 v5.652344 c0,4.7890619999999995 -0.253906,9.652344 -0.7148440000000003,14.574218 l-39.992187,-36.484374 c-8.191407,-83.15625 -78.519531,-148.339844 -163.792969,-148.339844 c-90.757812,0 -164.597656,73.839844 -164.597656,164.597656 v5.652344 c0,96.367187 124.164062,213.027344 164.597656,248.453125 zm122.699219,-28.660157 h59.851562 v-59.851562 h-59.851562 zm-122.699219,-310.238281 c46.753906,0 84.792969,38.039063 84.792969,84.792969 s-38.039063,84.792969 -84.792969,84.792969 s-84.792969,-38.039063 -84.792969,-84.792969 s38.039063,-84.792969 84.792969,-84.792969 zm0,39.902344 c-24.753906,0 -44.890625,20.136719 -44.890625,44.890625 c0,24.75 20.136719,44.890625 44.890625,44.890625 c24.75,0 44.890625,-20.140625 44.890625,-44.890625 c0,-24.753906 -20.140625,-44.890625 -44.890625,-44.890625 zm280.609375,243.222656 l-11.21875,-10.234375 v64.058594 c0,29.828125 -24.269531,54.09375 -54.097656,54.09375 h-126.332031 c-29.828126,0 -54.097657,-24.265625 -54.097657,-54.09375 v-64.058594 l-11.21875,10.234375 l-26.890625,-29.476562 l155.371094,-141.746094 l155.375,141.746094 zm-51.121094,-46.636719 l-77.363281,-70.574218 l-77.359375,70.574218 v100.457032 c0,7.828125 6.367187,14.195312 14.195313,14.195312 h126.332031 c7.828125,0 14.195312,-6.367187 14.195312,-14.195312 zm0,0 " id="svg_1" class="" fill="#ff672b" fill-opacity="1"/></g></svg>
+        <strong id="topic" >&nbsp F M S</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!-- <li class="nav-item">
+              <a class="menu nav-link" href="index.php">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="menu nav-link" href="main.php">Quick a Overview</a>
+            </li>
+            <li class="nav-item">
+              <a class="menu nav-link" href="main.php">Reports</a>
+            </li> -->
+          </ul>
+        <!-- Right -->
+        {% if session['logged_in'] %}
+        <ul class='navbar-nav nav-flex-icons'>
+          <li class='nav-item'>
+              <a href="{{url_for('sign_out')}}" class='nav-link border btn btn-outline-white rounded'>
+                  <i class='fas fa-sign-out-alt'></i> <span style='margin-right:5px'>Sign Out</span>
+              </a>
+          </li>
+          <li class='nav-item'>
+              <a href="{{url_for('sign_out')}}" class='nav-link border btn btn-outline-white rounded'>
+                  <i class='fas fa-sign-out-alt'></i> <span style='margin-right:5px'>News</span>
+              </a>
+          </li>
+          <li class='nav-item'>
+              <a href="{{url_for('sign_out')}}" class='nav-link border btn btn-outline-white rounded'>
+                  <i class='fas fa-sign-out-alt'></i> <span style='margin-right:5px'>Market</span>
+              </a>
+          </li>
+        </ul>
+        {% else %}
+        <ul class='navbar-nav nav-flex-icons'>
+          <li class='nav-item'>
+              <a href="{{url_for('login')}}" class='nav-link border btn btn-outline-white rounded'>
+                  <i class='fas fa-sign-in-alt'></i> <span style='margin-right:5px'>Sign In</span>
+              </a>
+          </li>
+        </ul>
+
+        {% endif %}
+
+
+      </div>
+
+    </div>
+  </nav>

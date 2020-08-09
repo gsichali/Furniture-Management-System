@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% block dispContent %}
+
+    {% if success %}
+        <div id="toast" class="show success-toast">
+            <div id="desc">
+                <i class="fa fa-check"></i>
+                Customer added successfully...
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container-fluid" >
+        <h2>Add Customer</h2>
+        <hr>
+        <div class="row justify-content-center align-items-end">
+            <form class="needs-validation col-lg-6 col-xl-6" action="{{ url_for('addCustomer') }}" method="post" role="form">
+                {{ form.hidden_tag() }}
+                <div class="form-row">
+
+                    <div class="col-md-6 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="firstname" id="firstname" class="form-control" required>
+                        <label for="firstname">First Name</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="lastname" id="lastname" class="form-control" required>
+                        <label for="lastname">Last Name</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="email" name="email" id="email" class="form-control" required>
+                        <label for="email">Email</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="number" name="contact" id="contact" class="form-control" required>
+                        <label for="contact">Contact</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                    <div class="md-form">
+                        <input type="text" name="address" id="address" class="form-control" required>
+                        <label for="address">Address</label>
+                    </div>
+                    </div>
+
+                    <div class="col-md-12 mb-3">
+                        <button class="btn btn-primary float-right" type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

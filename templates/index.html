@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'includes/head.html' %}
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+    {% endblock %}
+    <!-- page-wrapper -->
+
+    {% include 'includes/script.html' %}
+    
+    {% block bodyscript %}
+    {% endblock %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // Get current path and subpath to array.
+            pathName = window.location.pathname;
+            subPath = pathName.split("/");
+
+            $(".sidebar-menu>ul>li[key='"+subPath[1]+"']>a>i").addClass("svg-active");
+            $(".sidebar-menu>ul>li[key='"+subPath[1]+"']>a>span").addClass("sidebar-activespan");
+
+            current_sidebar = $(".sidebar-dropdown[key='"+subPath[1]+"']").find(">a");
+            current_sidebar
+                .next(".sidebar-submenu")
+                .slideDown(200);
+            current_sidebar
+                .parent()
+                .addClass("active");
+            // In case sidebar-submenu
+            if($(".sidebar-menu>ul>li.active").hasClass("sidebar-dropdown")) {
+                sidebar_submenu = $(".active").find(".sidebar-submenu>ul>li[key='"+subPath[2]+"']");
+                sidebar_submenu.find("a").css("color", "#16c7ff");
+            }
+
+            $(".sidebar-dropdown > a").click(function() {
+                $(".sidebar-submenu").slideUp(200);
+                if (
+                $(this)
+                    .parent()
+                    .hasClass("active")
+                ) {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .parent()
+                    .removeClass("active");
+                } else {
+                $(".sidebar-dropdown").removeClass("active");
+                $(this)
+                    .next(".sidebar-submenu")
+                    .slideDown(200);
+                $(this)
+                    .parent()
+                    .addClass("active");
+                }
+            });
+
+            $("#close-sidebar").click(function() {
+                $(".page-wrapper").removeClass("toggled");
+            });
+            $("#show-sidebar").click(function() {
+                $(".page-wrapper").addClass("toggled");
+            });
+
+
+            datatable = $('#dtBasicExample').DataTable({
+                "searching": true, // false to disable search (or any other option)
+                "info": false,
+                "ordering": false,
+                "autoWidth": false,
+                "paging": true,
+                "pageLength": 15,
+                "lengthMenu": [[10, 15, 25, 50, -1], [10, 15, 25, 50, "All"]],
+                "bLengthChange" : false,
+            });
+        });
+    </script>
+</body>
+
+</html>

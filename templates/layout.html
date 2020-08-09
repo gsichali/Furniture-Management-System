@@ -1,0 +1,40 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+	<head>
+		<meta charset = "utf-8">
+			<title>Furniture</title>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+	</head>
+	<body>
+
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+		{% include 'includes/_navbar.html' %}
+	<br/>
+	<br/><br/>
+	<main role="main" class="container">
+		<div class="jumbotron">
+			{% include 'includes/_messages.html' %}
+			{% block body %}
+
+
+			{% endblock %}
+
+		</div>
+		<footer><p>&copy; Grace Sichali 2018-2019 Copyright Reserved. </p></footer>
+	</main>
+		<div class="container"><br>
+			<center>
+				<h1>Please login</h1>
+      </center>
+		</div>
+		<div class="container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+    </div>
+    <br>
+    </div>
+    </div>
+  </body>

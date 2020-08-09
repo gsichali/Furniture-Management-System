@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block body %}
+    {% include "includes/header.html" %}
+    <div class="page-wrapper chiller-theme toggled">
+        {% include "includes/sidebar.html" %}        
+        <!-- sidebar-wrapper  -->
+        <main class="page-content">
+            {% block dispContent %}
+            {% endblock %}
+        </main>
+        <!-- page-content" -->
+    </div>
+{% endblock %}
+{% block bodyscript %}
+{% endblock %}

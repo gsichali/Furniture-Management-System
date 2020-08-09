@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block head %}
+    <link href="{{ url_for('static',filename='css/home.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% include "includes/header.html" %}
+    {% block homeSection %}
+    {% endblock %}    
+{% endblock %}

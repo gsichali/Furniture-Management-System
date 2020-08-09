@@ -1,0 +1,126 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@gsichali
+RobertChow211
+/
+Flask-app
+1
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+Flask-app/templates/register.html
+@Neil-Tate Neil-Tate first commit
+bef2cb5 15 days ago
+111 lines (90 sloc)  5.09 KB
+
+{% extends "home.html" %}
+{% block homeSection %}
+    <section class="view intro-2">
+
+        <div class="mask rgba-stylish-strong h-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+            <div class="col-xl-5 col-lg-6 col-md-10 col-sm-12 mx-auto mt-lg-5">
+
+                <!--Form with header-->
+                <div class="card wow fadeIn" data-wow-delay="0.3s">
+
+                <!-- Material form login -->
+                <!-- Material form register -->
+                <div class="card">
+
+                    <h5 class="card-header info-color white-text text-center py-4">
+                        <strong>Sign up</strong>
+                    </h5>
+
+                    <!--Card content-->
+                    <div class="card-body px-lg-5 pt-0">
+
+                        <!-- Form -->
+                        <form class="text-center" style="color: #757575;" action="{{ url_for('register') }}" method="post" role="form">
+                            {{ form.csrf_token }}
+                                                      <!-- E-mail -->
+                            <div class="md-form mt-0">
+                                <input type="email" name="email" id="email" class="form-control" required>
+                                <label for="email">E-mail</label>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="md-form">
+                                <input type="password" name="password" id="password" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" required>
+                                <label for="password">Password</label>
+                            </div>
+
+                            <div class="md-form">
+                                <input type="password" name="confirmPassword" id="materialRegisterConfirmPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" required>
+                                <label for="materialRegisterConfirmPassword">Confirm Password</label>
+                                <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                                    At least 8 characters and 1 digit
+                                </small>
+                            </div>
+
+
+
+                            <!-- Sign up button -->
+                            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+                            <small id="status-msg" class="form-text text-muted mb-4 msg-hide">
+
+                            </small>
+                            <!-- Social register -->
+                            <p>or sign up with:</p>
+
+                            <a class="btn-floating btn-fb btn-sm">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn-floating btn-tw btn-sm">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="btn-floating btn-li btn-sm">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a class="btn-floating btn-git btn-sm">
+                                <i class="fab fa-github"></i>
+                            </a>
+
+                            <hr>
+
+                            <!-- Terms of service -->
+                            <p>By clicking
+                                <em>Sign up</em> you agree to our
+                                <a href="" target="_blank">terms of service</a>
+
+                        </form>
+                        <!-- Form -->
+
+                    </div>
+
+                </div>
+                    <!-- Material form register -->
+                <!-- Material form login -->
+                </div>
+                <!--/Form with header-->
+
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About

@@ -1,0 +1,191 @@
+body > .navbar {
+    background: #31353D;
+}
+
+body > .navbar svg {
+    width: 35px;
+    height: 35px;
+}
+
+body > .navbar #topic {
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.header-container {
+    max-width: 100%;
+}
+
+
+/************************* Datatable Style css  ***********************************/
+/* table.table-sm tbody td {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    vertical-align: middle;
+} */
+
+/************************* Toast Style css  ***********************************/
+#toast {
+    position: fixed;
+    right: -350px;
+    top: 100px;
+    width: 350px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+#toast #desc{
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+#toast i {
+    margin-right: 15px;
+}
+
+.success-toast {
+    background-color: rgb(0, 200, 81);
+}
+
+.fail-toast {
+    background-color: rgb(51, 181, 229);
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: toast-animation 7s;
+}
+
+@keyframes toast-animation {
+    0% {
+      right: -350px;
+      opacity: 0;
+    }
+    15% {
+        right: 0px;
+        opacity: 1;
+    }
+    85% {
+        right: 0px;
+        opacity: 1;
+    }
+    100% {
+        right: -350px;
+        opacity: 0.5;
+    }
+}
+@-webkit-keyframes fadein {
+    from {top: 0; opacity: 0;} 
+    to {top: 100px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {right: -350px; opacity: 0;}
+    to {right: 0px; opacity: 1;}
+}
+
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {right: 0px}
+    to {right: 0px}
+}
+
+@-webkit-keyframes fadeout {
+    from {top: 100px; opacity: 1;} 
+    to {top: 0px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {right: 0px; opacity: 1;}
+    to {right: -350px; opacity: 0;}
+}
+
+ /************************* Toast Alert css  ***********************************/
+ .alert-container {
+     height: calc( 100vh - 80px );
+     background-color: rgb(155, 152, 152);
+ }
+ .alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 19px;
+    font-family: "Roboto",sans-serif;
+    text-align: center;
+}
+  
+.alert.success {background-color: #4CAF50;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.alert i {
+    margin-right: 15px;
+}
+ /************************* Reports Form css  ***********************************/
+.reports-form{
+    padding: 10px 40px;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+.monthly-report {
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+.monthly-report input {
+    height: 35px;
+}
+.monthly-report label {
+    padding-top: 6px;
+}
+
+/************************* Export CSV button css  ***********************************/
+.export-csv {
+    position: relative;
+    bottom: 74px;
+    left: calc( 50% - 60px );
+}
+
+/************************* Dashboard page css  ***********************************/
+.card {
+    margin-bottom: 30px;
+    border: none;
+    -webkit-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+    -moz-box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+    box-shadow: 0px 1px 2px 1px rgba(154, 154, 204, 0.22);
+    border: 1px solid #b3bfcc;
+}
+.card>.bg-light {
+    background-color: white !important;
+}
+
