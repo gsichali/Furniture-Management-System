@@ -1,2 +1,3 @@
 # webApp
-CRUD App
+CRUD Management System for Inventory.
+Stack: Python, Flask, Javascript, Bootstrap
