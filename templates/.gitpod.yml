@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.dockerfile
+tasks:
+  - init: . ${GITPOD_REPO_ROOT}/.vscode/init_tasks.sh
+    command: /home/gitpod/.pg_ctl/bin/pg_start > /dev/null
+  - command: . ${GITPOD_REPO_ROOT}/.vscode/uptime.sh &
+  - init: pip3 install -r requirements.txt
+    command: python3 app.py
+vscode:
+  extensions:
+    - ms-python.python
+    - formulahendry.auto-close-tag
+    - eventyret.bootstrap-4-cdn-snippet
+    - hookyqr.beautify
+    - matt-rudge.auto-open-preview-panel
