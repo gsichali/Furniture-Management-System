@@ -35,8 +35,8 @@ body > .navbar {
     display: none;
 }
 .card-body > form> #status-msg {
-    color:red !important;
-    font-size: 15px;
+    color:rgb(18, 17, 17) !important;
+    font-size: 8px;
 }
 .card-body > form> .success-msg {
     color: blue !important;
