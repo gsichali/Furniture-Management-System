@@ -6,7 +6,7 @@ from flask_wtf import Form,FlaskForm
 from wtforms import DateField, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 # from extensions import csrf
-from flask_wtf.csrf import CsrfProtect
+from flask_wtf.csrf import CSRFProtect
 from time import gmtime, strftime
 from functools import wraps
 import bcrypt
@@ -23,7 +23,7 @@ app = Flask(__name__)
 bootstrap = Bootstrap(app)
 app.secret_key = "secret key"
 # csrf.init_app(app)
-CsrfProtect(app)
+CSRFProtect(app)
 
 # Config MySQL
 app.config['MYSQL_HOST'] = 'localhost'
